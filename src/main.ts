@@ -14,8 +14,8 @@ async function main() {
     await fs.writeFile(`${__dirname}/../build/pob-example.xml`, xml.toString())
     console.log(xml.toString())
 
-    const src = await fs.readFile(`${__dirname}/../third-party/PathOfBuilding/src/HeadlessWrapper.lua`)
-    const f = fengari.load(src.toString().substring(2));
+    const src = await fs.readFile(`${__dirname}/../build/pobbundle.lua`)
+    const f = fengari.load(src.toString());
     console.log(f())
     // console.log(fengari.L)
 }
