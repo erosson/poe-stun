@@ -1,0 +1,6 @@
+[submodule "third-party/PathOfBuilding"]
+	path = third-party/PathOfBuilding
+	url = https://github.com/PathOfBuildingCommunity/PathOfBuilding.git
+[submodule "third-party/lua-amalg"]
+	path = third-party/lua-amalg
+	url = https://github.com/siffiejoe/lua-amalg.git

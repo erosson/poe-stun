@@ -1,0 +1,19 @@
+goal: integrate pob with monster data and stuns.
+
+* how much damage + stunthreshold do I need to stun monsters, champs, rares, map bosses, pinnacle bosses?
+* How many am I already stunning? How often?
+* how often do I stun with spiky damage, not just average damage - ruthless, double%, triple%, multistrike, natural damage range...
+* something similar for defenses. pob calculates elemental max hits now, but that data has no context - monsters have damage data - which monsters can one-shot me, and which just barely can't?
+
+todo:
+
+* [x] decode pob data
+      average damage + attack speed are there, but not stun threshold/duration or spike damage
+* [ ] embed headless pob, calculate the stats we need
+      this is pretty complicated, let's manually input the relevant data for now...
+      maybe we could start as a "time until monster dies, based on dps" calculator
+      or a "which slams can you (not) tank" calculator
+* [ ] extract monster data with poe-dat-viewer. DefaultMonsterStats.dat?
+      or, scrape poedb?
+* [ ] monster stat calculations. start with stun-ehp: hp, damage reduction, armor, stun threshold, level scaling...
+      this looks to be nontrivial. https://www.reddit.com/r/pathofexile/comments/8fqsx1/monster_health_and_other_monster_stats_spreadsheet/

@@ -1,6 +1,7 @@
 import * as fs from 'fs/promises'
 import * as zlib from 'zlib'
 import {promisify} from 'util'
+import * as fengari from 'fengari-web'
 
 async function main() {
     const input = await fs.readFile(`${__dirname}/../test/pob-example.txt`)
@@ -10,7 +11,13 @@ async function main() {
     const zip = Buffer.from(pob, 'base64url')
     const xml = await promisify(zlib.unzip)(zip)
     // const xml = await promisify(zlib.unzip)(zip)
+    await fs.writeFile(`${__dirname}/../build/pob-example.xml`, xml.toString())
     console.log(xml.toString())
+
+    const src = await fs.readFile(`${__dirname}/../third-party/PathOfBuilding/src/HeadlessWrapper.lua`)
+    const f = fengari.load(src.toString().substring(2));
+    console.log(f())
+    // console.log(fengari.L)
 }
 
 main().catch(err => {

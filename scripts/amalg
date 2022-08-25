@@ -1,0 +1,8 @@
+#!/bin/sh
+set -eux
+cd "`dirname "$0"`/.."
+
+cd ./third-party/PathOfBuilding/src
+modules=$(find . -name '*.lua' | grep -v './Export' | sed 's_^\.\/__g; s_\.lua__g')
+../../../third-party/lua-amalg/src/amalg.lua $modules > ../../../build/pobbundle.lua
+cd -
